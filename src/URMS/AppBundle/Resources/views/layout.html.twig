@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block log_in_out %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li><a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+    {% else %}
+    <li><a href="{{ path('security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+    {% endif %}
+{% endblock %}
+{% block sidebar%}
+    {{ render(controller('URMSAppBundle:Page:sidebar')) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/css/second.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}

@@ -1,0 +1,91 @@
+ul.nav.navbar-nav{
+	float: right;
+	font-size: 1.2em;
+}
+nav.navbar.navbar-inverse{
+	border-radius: 0px;
+	background-color: rgb(0, 26, 19);
+}
+nav.navbar.navbar-inverse div li a:hover{
+	color: rgb(176,223,91);
+}
+nav.navbar.navbar-inverse .navbar-header a:hover{
+	color: rgb(176,223,91);
+}
+a.navbar-brand{
+	font-size: 1.7em;
+}
+
+.jumbotron h1{
+	font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+	margin:0px;
+	padding:0px;
+}
+.jumbotron .img-rounded{
+	float: left;
+	width: 11em
+}
+.jumbotron h2{
+	margin:0px;
+	padding:0px;
+	font-family:  Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+}
+div.jumbotron.jumbotron{
+	border-radius:0px;
+	text-align:center;
+	background-color: rgb(176,223,91);
+}
+footer{
+	background-color: black;
+	margin-top:2em;
+	margin-bottom: 1em;
+	padding:0.8em;
+	text-align: center;
+	color:grey;
+	font-size: 1.1em;
+}
+
+div.row{
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-left:1em;
+	padding-right:1em;
+}
+div.sider.col-sm-4{
+	//background-color: rgb(176,223,91);
+	padding:1em;
+}
+div.body.col-sm-8{
+	padding:.8em;
+}
+.sider h2 {
+	border: ridge black;
+	text-align: center;
+	padding: .2em;
+	margin-top: 0px;
+	background-color: rgb(176,223,91);
+	//color:gray;
+}
+.row .sider{
+	min-height: 25em;
+}
+
+.sider .nav-pills a li{
+	//border:black double .02em;
+	background-color: black;
+	padding: .8em;
+	text-align: center;
+	margin-bottom: .2em;
+	margin-left: 1em;
+	margin-right: 1em;
+	font-size: 1.2em;
+	color: gray;
+}
+.sider .nav-stacked a:hover{
+	text-decoration:none;
+}
+.sider .nav-stacked li:hover{
+	padding: 1em;
+	color: rgb(176,223,91);
+}
+

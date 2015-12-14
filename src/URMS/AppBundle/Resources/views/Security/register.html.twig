@@ -1,0 +1,13 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Add Login Account{% endblock %}
+{% block sidebarhead %}Add Login Account{% endblock %}
+{% block body %}
+    {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.UserId, { 'attr': {'class': 'form-control','placeholder':'User Name'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.accessLevel, {'attr': {'class': 'form-control','placeholder':'Access Level'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.Password.first, {'attr': {'class': 'form-control','placeholder':'Password'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.Password.second, {'attr': {'class': 'form-control','placeholder':'Repeat password'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Register!</button>
+{{ form_end(form) }}
+{% endblock %}

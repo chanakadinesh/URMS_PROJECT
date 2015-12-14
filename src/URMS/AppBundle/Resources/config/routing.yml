@@ -1,0 +1,27 @@
+urms_app_homepage:
+    path:     /
+    defaults: { _controller: URMSAppBundle:Page:index }
+
+security_login:
+    path:     /login
+    defaults: { _controller: URMSAppBundle:Security:login }
+
+
+security_logout:
+    path:     /logout
+
+login_check:
+    path:     /login_check
+    defaults: {_controller: URMSAppBundle:Secutity:loginCheck }
+
+admin_router:
+    path:    /admin
+    defaults: {_controller: URMSAppBundle:Default:admin}
+
+super_admin_addUser:
+    path: /admin/add_user
+    defaults: {_controller: URMSAppBundle:Admin:addUser}
+
+super_admin_addLoginAccount:
+    path: /add_master_account
+    defaults: {_controller: URMSAppBundle:Admin:addMasterAccount}
