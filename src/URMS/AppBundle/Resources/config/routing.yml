@@ -18,10 +18,18 @@ admin_router:
     path:    /admin
     defaults: {_controller: URMSAppBundle:Default:admin}
 
-super_admin_addUser:
+admin_addUser:
     path: /admin/add_user
     defaults: {_controller: URMSAppBundle:Admin:addUser}
 
 super_admin_addLoginAccount:
-    path: /add_master_account
-    defaults: {_controller: URMSAppBundle:Admin:addMasterAccount}
+    path: /admin/add_master_account
+    defaults: {_controller: URMSAppBundle:Page:dbTest}
+
+admin_addDriver:
+    path: /admin/add_driver
+    defaults: {_controller: URMSAppBundle:Admin:addDriverAccount}
+
+admin_addResourceAccount:
+    path: /admin/add_hall
+    defaults: {_controller: URMSAppBundle:Admin:addHall}

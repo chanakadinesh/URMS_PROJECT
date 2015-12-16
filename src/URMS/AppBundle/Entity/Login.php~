@@ -54,7 +54,7 @@ class Login implements UserInterface, \Serializable
     public function serialize()
     {
         return serialize(array(
-    //        $this->userId,
+            $this->userId,
             $this->password,
             // see section on salt below
             // $this->salt,
@@ -134,11 +134,11 @@ class Login implements UserInterface, \Serializable
      */
     public function getUsername()
     {
-      //  return $this->userId;
+        return $this->userId;
     }
     public function setUsername($userId)
     {
-        //$this->userId=$userId;
+        $this->userId=$userId;
         return $this;
     }
 
@@ -155,6 +155,8 @@ class Login implements UserInterface, \Serializable
     }
     /**
      * @var string
+     *
+     * @ORM\Column(name="Password", type="string", length=70, nullable=false)
      */
     private $password;
 
@@ -168,6 +170,38 @@ class Login implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="User_Id", type="string", length=30)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $userId;
+
+
+    /**
+     * Get userId
+     *
+     * @return string
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+    /**
+     * Set userId
+     *
+     * @param string $userId
+     *
+     * @return Login
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
 
         return $this;
     }

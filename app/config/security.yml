@@ -7,7 +7,7 @@ security:
         our_db_provider:
             entity:
                 class: URMSAppBundle:Login
-                property: userName
+                property: userId
     encoders:
         URMS\AppBundle\Entity\Login:
             algorithm: bcrypt

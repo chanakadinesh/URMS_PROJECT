@@ -1,0 +1,18 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Add Driver Account{% endblock %}
+{% block sidebarhead %}Add Driver Account{% endblock %}
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('submit-notice') %}
+        <div class="submit-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+{{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.name, { 'attr': {'class': 'form-control','placeholder':'Name'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.driverId, {'attr': {'class': 'form-control','placeholder':'Driver Id'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.nicNo, {'attr': {'class': 'form-control','placeholder':'NIC Number'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.contactNo, {'attr': {'class': 'form-control','placeholder':'Contact Number'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Register!</button>
+{{ form_end(form) }}
+{% endblock %}

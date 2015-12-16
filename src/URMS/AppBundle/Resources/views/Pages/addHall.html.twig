@@ -1,0 +1,14 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Add Hall{% endblock %}
+{% block sidebarhead %}Add Hall{% endblock %}
+{% block body %}
+    {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.name, { 'attr': {'class': 'form-control','placeholder':'name'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.hallNo, {'attr': {'class': 'form-control','placeholder':'hallNo'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.type, {'attr': {'class': 'form-control','placeholder':'type'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.owner, {'attr': {'class': 'form-control','placeholder':'owner'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.capacity, {'attr': {'class': 'form-control','placeholder':'capacity'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Register!</button>
+    {{ form_end(form) }}
+{% endblock %}

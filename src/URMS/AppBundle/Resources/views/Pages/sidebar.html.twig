@@ -1,6 +1,11 @@
+{% if is_granted('ROLE_ADMIN') %}
 <ul class="nav nav-pills nav-stacked">
-    <a href="{{ path('super_admin_addUser') }}"><li>Add Users</li></a>
-    <a href="{{ path('super_admin_addLoginAccount') }}"><li>Add Master Password</li></a>
-    <a href="#"><li>Notifications</li></a>
+    <a href="{{ path('admin_addUser') }}"><li>Add User Account</li></a>
+    <a href="#demo" data-toggle="collapse"><li>Add Resource</li></a>
+
+    <a href="{{ path('admin_addResourceAccount') }}" id="demo" class="collapse"><li class="submenu"></t>Add Hall</li></a>
     <a href="#"><li>Check out</li></a>
+
 </ul>
+{% endif %}
+

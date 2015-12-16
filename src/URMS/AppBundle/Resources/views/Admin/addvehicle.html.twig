@@ -1,0 +1,12 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Add New Vehicle{% endblock %}
+{% block sidebarhead %}Add New Vehicle{% endblock %}
+{% block body %}
+    {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.vehical, { 'attr': {'class': 'form-control','placeholder':'Vehicle Name'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.vehicalType, {'attr': {'class': 'form-control','placeholder':'Vehicle Type'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.capacity, {'attr': {'class': 'form-control','placeholder':'Capacity'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Register!</button>
+    {{ form_end(form) }}
+{% endblock %}

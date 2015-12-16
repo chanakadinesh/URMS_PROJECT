@@ -38,7 +38,7 @@ class Driver
      *
      * @ORM\Column(name="Driver_Id", type="string", length=10)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $driverId;
 
@@ -124,5 +124,22 @@ class Driver
     public function getDriverId()
     {
         return $this->driverId;
+    }
+    /**
+     * Set driverId
+     *
+     * @param string $driverId
+     *
+     * @return Driver
+     */
+    public function setDriverId($driverId)
+    {
+        $this->driverId = $driverId;
+
+        return $this;
+    }
+
+    public function getInsertSqlQuery(){
+        return $sql="INSERT INTO driver (Driver_Id,Name,NIC_No,Contact_No) VALUES ('".$this->driverId."','".$this->name."','".$this->nicNo."','".$this->contactNo."')";
     }
 }

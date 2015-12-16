@@ -1,77 +1,72 @@
 <?php
+namespace URMS\AppBundle\Entity\New_entity;
 
-namespace URMS\AppBundle\Entity;
-
+/**
+ * Created by PhpStorm.
+ * User: Chanaka
+ * Date: 14/12/2015
+ * Time: 3:53 PM
+ */
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Person
+ * AddUser
  *
- * @ORM\Table(name="person")
  * @ORM\Entity
  */
-class Person
+class AddUser
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="User_type", type="string", length=45, nullable=false)
+     *
      */
     private $userType;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
     private $name;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=200, nullable=false)
+     *
      */
     private $address;
-
     /**
      * @var integer
      *
-     * @ORM\Column(name="Contact_no", type="integer", nullable=false)
+     *
      */
     private $contactNo;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="NIC_no", type="string", length=10, nullable=true)
+     *
      */
     private $nicNo;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="User_Id", type="string", length=20)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     *
      */
     private $userId;
-
-
-
     /**
-     * Set userType
+     * @var string
      *
-     * @param string $userType
-     *
-     * @return Person
      */
+    private $accessLevel = 'ROLL_USER';
+    /**
+     * @var string
+     *
+     */
+    private $password;
     public function setUserType($userType)
     {
         $this->userType = $userType;
 
         return $this;
     }
-
     /**
      * Get userType
      *
@@ -82,20 +77,12 @@ class Person
         return $this->userType;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Person
-     */
     public function setName($name)
     {
         $this->name = $name;
 
         return $this;
     }
-
     /**
      * Get name
      *
@@ -106,20 +93,12 @@ class Person
         return $this->name;
     }
 
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return Person
-     */
     public function setAddress($address)
     {
         $this->address = $address;
 
         return $this;
     }
-
     /**
      * Get address
      *
@@ -130,20 +109,12 @@ class Person
         return $this->address;
     }
 
-    /**
-     * Set contactNo
-     *
-     * @param integer $contactNo
-     *
-     * @return Person
-     */
     public function setContactNo($contactNo)
     {
         $this->contactNo = $contactNo;
 
         return $this;
     }
-
     /**
      * Get contactNo
      *
@@ -154,20 +125,12 @@ class Person
         return $this->contactNo;
     }
 
-    /**
-     * Set nicNo
-     *
-     * @param string $nicNo
-     *
-     * @return Person
-     */
     public function setNicNo($nicNo)
     {
         $this->nicNo = $nicNo;
 
         return $this;
     }
-
     /**
      * Get nicNo
      *
@@ -187,7 +150,35 @@ class Person
     {
         return $this->userId;
     }
-    public  function  setUserId($userId){
+    public function setUserId($userId){
         $this->userId=$userId;
+        return $this;
     }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+    }
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setAccessLevel($accessLevel)
+    {
+        $this->accessLevel = $accessLevel;
+
+        return $this;
+    }
+    /**
+     * Get accessLevel
+     *
+     * @return string
+     */
+    public function getAccessLevel()
+    {
+        return $this->accessLevel;
+    }
+
 }

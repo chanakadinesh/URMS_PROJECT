@@ -1,0 +1,24 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Add User Account{% endblock %}
+{% block sidebarhead %}Add User Account{% endblock %}
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('submit-notice') %}
+    <div class="submit-notice">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
+
+    {{ form_start(form,{'attr':{'class': 'form-addUser'}}) }}
+    {{ form_row(form.userId, { 'attr': {'class': 'form-control','placeholder':'User Id'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.name, { 'attr': {'class': 'form-control','placeholder':'User Name'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.accessLevel, {'attr': {'class': 'form-control','placeholder':'Access Level'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.address, { 'attr': {'class': 'form-control','placeholder':'Address'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.contactNo, { 'attr': {'class': 'form-control','placeholder':'Conatct No'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.nicNo, { 'attr': {'class': 'form-control','placeholder':'NIC No'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.userType, { 'attr': {'class': 'form-control','placeholder':'User Id'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.Password.first, {'attr': {'class': 'form-control','placeholder':'Password'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.Password.second, {'attr': {'class': 'form-control','placeholder':'Repeat password'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Register!</button>
+    {{ form_end(form) }}
+{% endblock %}
