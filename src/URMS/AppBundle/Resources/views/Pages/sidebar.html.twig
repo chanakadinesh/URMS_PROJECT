@@ -1,11 +1,25 @@
-{% if is_granted('ROLE_ADMIN') %}
-<ul class="nav nav-pills nav-stacked">
-    <a href="{{ path('admin_addUser') }}"><li>Add User Account</li></a>
-    <a href="#demo" data-toggle="collapse"><li>Add Resource</li></a>
-
-    <a href="{{ path('admin_addResourceAccount') }}" id="demo" class="collapse"><li class="submenu"></t>Add Hall</li></a>
-    <a href="#"><li>Check out</li></a>
+<ul class="nav nav-pills nav-stacked" id="menu">
+    {% if is_granted('ROLE_ADMIN') %}
+    <li ><a href="{{ path('admin_addUser') }}" class="main">Add User Account</a></li>
+    <li><a href="#demo" class="main">Add Resource</a>
+        <ul>
+            <li><a href="{{ path('admin_addHall') }}" class="submenu">Add Hall</a></li>
+            <li><a href="{{ path('admin_addDriver') }}" class="submenu">Add Driver</a></li>
+            <li><a href="{{ path('admin_addVehicle') }}" class="submenu">Add Vehicle</a></li>
+        </ul>
+    </li>
+    {% endif %}
+    {% if is_granted('ROLE_STUDENT') %}
+    <li><a href="#" class="main">View Resources</a>
+        <ul>
+            <li><a href="{{ path('user_showHall') }}" class="submenu">Halls</a></li>
+            <li><a href="{{ path('ùser_showVehicleList') }}" class="submenu">Vehicles</a></li>
+            <li><a href="{{ path('user_showDriverList') }}" class="submenu" >Drivers</a></li>
+        </ul>
+    </li>
+    {% endif %}
+    <li ><a href="#" class="main">Allocate Resource</a></li>
 
 </ul>
-{% endif %}
+
 

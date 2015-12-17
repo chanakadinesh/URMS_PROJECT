@@ -14,22 +14,28 @@ login_check:
     path:     /login_check
     defaults: {_controller: URMSAppBundle:Secutity:loginCheck }
 
-admin_router:
-    path:    /admin
-    defaults: {_controller: URMSAppBundle:Default:admin}
-
 admin_addUser:
     path: /admin/add_user
     defaults: {_controller: URMSAppBundle:Admin:addUser}
-
-super_admin_addLoginAccount:
-    path: /admin/add_master_account
-    defaults: {_controller: URMSAppBundle:Page:dbTest}
 
 admin_addDriver:
     path: /admin/add_driver
     defaults: {_controller: URMSAppBundle:Admin:addDriverAccount}
 
-admin_addResourceAccount:
+admin_addHall:
     path: /admin/add_hall
     defaults: {_controller: URMSAppBundle:Admin:addHall}
+
+admin_addVehicle:
+    path: /admin/add_vehicle
+    defaults: {_controller: URMSAppBundle:Admin:addVehicle}
+
+user_showDriverList:
+    path: /show_driver
+    defaults: {_controller: URMSAppBundle:Page:showDriverAccount}
+user_showHall:
+    path: /hall_type
+    defaults: {_controller: URMSAppBundle:Page:hallType}
+ùser_showVehicleList:
+    path: /show_vehicle
+    defaults: {_controller: URMSAppBundle:Page:getVehicleList}

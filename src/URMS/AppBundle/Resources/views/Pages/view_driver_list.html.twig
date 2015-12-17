@@ -1,0 +1,23 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Show Driver Details{% endblock %}
+{% block sidebarhead %}Driver Details{% endblock %}
+{% block body %}
+    <table class="table">
+        <tr>
+            <th>ID Number</th>
+            <th>Name</th>
+            <th>NIC Number</th>
+            <th>Contact Number</th>
+        </tr>
+
+        {% for driver in drivers %}
+            <tr>
+                <td>{{ driver.Driver_Id|e }}</td>
+                <td>{{ driver.Name|e }}</td>
+                <td>{{ driver.NIC_No|e }}</td>
+                <td>{{ driver.Contact_No|e }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Show Hall{% endblock %}
+{% block sidebarhead %}Hall{% endblock %}
+{% block body %}
+    {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.Hall_Type, { 'attr': {'class': 'form-control','placeholder':'Hall Type'},'label_attr': {'class': 'sr-only'}}) }}
+
+    <button type="submit" class="btn btn-lg btn-success btn-block"> Search </button>
+    {{ form_end(form) }}
+{% endblock %}

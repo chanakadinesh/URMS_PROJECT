@@ -17,10 +17,14 @@ use URMS\AppBundle\Entity\Person;
 use URMS\AppBundle\Entity\New_entity\Hall;
 use URMS\AppBundle\Entity\Lab;
 use URMS\AppBundle\Entity\Resource;
-use URMS\AppBundle\Form\ResourceType;
+use URMS\AppBundle\Form\VehicleType;
 use URMS\AppBundle\Form\UserType;
 use URMS\AppBundle\Form\DriverType;
+use URMS\AppBundle\Form\ResourceType;
 use URMS\AppBundle\Entity\Driver;
+use URMS\AppBundle\Entity\New_entity\Vehicle;
+use URMS\AppBundle\Entity\Vehical;
+
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 class AdminController extends Controller
 {
@@ -133,19 +137,39 @@ class AdminController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $resource->setType($hall->getType());
-            $resource->setResourceId($hall->gethallNo());
+            $Db=new Database();
+            $Con=$Db->getDbConnection();
 
-            $lab->setName($hall->getName());
-            $lab->setLabNo($resource);
-            $lab->setCapacity($hall->getCapacity());
+            $sql1="INSERT INTO resource (Resource_Id,Type) VALUES (?,?)";
+            $stmt1=$Con->prepare($sql1);
+            $stmt1->bindValue(2,$hall->getType());
+            $stmt1->bindValue(1,$hall->gethallNo());
+            $stmt1->execute();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($resource);
-            $em->persist($lab);
-            $em->flush();
+            switch($hall->getType()){
+                case "EXAMHALL":
+                    $sql="INSERT INTO exam_hall (Exam_Hall_No,Name,Capacity) VALUES (?,?,?)";
+                    break;
+                case "LECTUREHALL":
+                    $sql="INSERT INTO lecture_hall (Hall_No,Name,Capacity) VALUES (?,?,?)";
+                    break;
+                case "LAB":
+                    $sql="INSERT INTO lab (Lab_No,Name,Capacity) VALUES (?,?,?)";
+                    break;
+                default:
+                    $sql="INSERT INTO exam_hall (Exam_Hall_No,Name,Capacity) VALUES (?,?,?)";
+            }
 
-            return $this->redirectToRoute('super_admin_addResourceAccount');
+
+            $stmt=$Con->prepare($sql);
+            $stmt->bindValue(1,$hall->gethallNo());
+            $stmt->bindValue(2,$hall->getName());
+            $stmt->bindValue(3,$hall->getCapacity());
+            $stmt->execute();
+
+
+
+            return $this->redirectToRoute('admin_addHall');
         }
 
 
@@ -161,34 +185,49 @@ class AdminController extends Controller
         $vehicle= new Vehical();
         $resource = new Resource();
 
-        $form = $this->createForm(ResourceType::class, $user);
+        $form = $this->createForm(VehicleType::class, $user);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $resource->setType("vehicle");
-            $resource->setResourceId($user->getVehical());
+            $Db=new Database();
+            $Con=$Db->getDbConnection();
+            $sql="INSERT INTO vehical (Vehical_Id,Vehical_Type,Capacity) VALUES (?,?,?)";
+            $sql2="INSERT INTO resource (Resource_Id,Type) VALUES (?,?)";
 
-            $vehicle ->setVehical($resource);
-            $vehicle ->setVehicalType($user ->getVehicalType());
-            $vehicle ->setCapacity($user ->getCapacity());
+            $stmt=$Con->prepare($sql2);
+            $stmt->bindValue(1,$user->getVehical());
+            $stmt->bindValue(2,"vehicle");
+            $stmt->execute();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($resource);
-            $em->persist($vehicle);
-            $em->flush();
+            $stmt2=$Con->prepare($sql);
+            $stmt2->bindValue(1,$user->getVehical());
+            $stmt2->bindValue(2,$user->getVehicalType());
+            $stmt2->bindValue(3,$user->getCapacity());
+            $stmt2->execute();
+//
+//            $resource->setType("vehicle");
+//            $resource->setResourceId($user->getVehical());
+//
+//            $vehicle ->setVehical($resource);
+//            $vehicle ->setVehicalType($user ->getVehicalType());
+//            $vehicle ->setCapacity($user ->getCapacity());
+//
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($resource);
+//            $em->persist($vehicle);
+//            $em->flush();
 
             // ... do any other work - like send them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('super_admin_addVehicle');
+            return $this->redirectToRoute('admin_addVehicle');
         }
 
         return $this->render('URMSAppBundle:Admin:addVehicle.html.twig',
             array('form' => $form->createView())
         );
     }
-
 
 }

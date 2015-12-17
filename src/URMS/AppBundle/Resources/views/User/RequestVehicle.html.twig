@@ -1,0 +1,22 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Vehicle Request{% endblock %}
+{% block sidebarhead %}Vehicle Request{% endblock %}
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('submit-notice') %}
+        <div class="submit-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form,{'attr':{'class': 'form-reserveVehicle'}}) }}
+    {{ form_row(form.VehicleType, { 'attr': {'class': 'form-control','placeholder':'VehicleType )' }}) }}
+   {#
+    {{ form_row(form.Date, { 'attr': {'class': 'form-control','placeholder':'Date'}}) }}
+    {{ form_row(form.Capacity, {'attr': {'class': 'form-control','placeholder':'Capacity'}}) }}
+    {{ form_row(form.Route, { 'attr': {'class': 'form-control','placeholder':'Route'}}) }}
+    #}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Search!</button>
+    {{ form_end(form) }}
+
+{% endblock %}

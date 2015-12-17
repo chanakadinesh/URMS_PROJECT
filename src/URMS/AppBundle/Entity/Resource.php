@@ -24,7 +24,7 @@ class Resource
      *
      * @ORM\Column(name="Resource_Id", type="string", length=10)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $resourceId;
 
@@ -62,5 +62,12 @@ class Resource
     public function getResourceId()
     {
         return $this->resourceId;
+    }
+
+    public function setResourceId($resourceId)
+    {
+        $this->resourceId = $resourceId;
+
+        return $this;
     }
 }

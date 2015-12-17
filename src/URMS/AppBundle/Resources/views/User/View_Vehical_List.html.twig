@@ -1,0 +1,24 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Show Vehicle Details Details{% endblock %}
+{% block sidebarhead %}Vehicle Details{% endblock %}
+{% block body %}
+<table class="table">
+    <tr>
+        <th>Vehicle Number</th>
+        <th>type</th>
+        <th>Capacity</th>
+
+    </tr>
+
+    {% for vehicle in vehicles %}
+    <tr>
+        <td>{{ vehicle.Vehical_Id|e }}</td>
+        <td>{{ vehicle.Vehical_Type|e }}</td>
+        <td>{{ vehicle.Capacity|e }}</td>
+
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}

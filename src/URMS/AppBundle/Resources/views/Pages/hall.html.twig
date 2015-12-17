@@ -1,0 +1,38 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Show Hall Details{% endblock %}
+{% block sidebarhead %}Hall Details{% endblock %}
+{% block body %}
+     <table class="table">
+        <tr>
+            <th>Hall No </th>
+            <th>Hall Name </th>
+            <th>Capacity</th>
+        </tr>
+
+        {% for hall in hallList %}
+            {% if(type=="LAB") %}
+            <tr>
+                <td>{{ hall.Lab_No|e }}</td>
+                <td>{{ hall.Name|e }}</td>
+                <td>{{ hall.Capacity|e }}</td>
+            </tr>
+            {% endif %}
+            {% if(type=="LECTUREHALL") %}
+                <tr>
+                    <td>{{ hall.Hall_No|e }}</td>
+                    <td>{{ hall.Name|e }}</td>
+                    <td>{{ hall.Capacity|e }}</td>
+                </tr>
+            {% endif %}
+            {% if(type=="EXAMHALL") %}
+                <tr>
+                    <td>{{ hall.Exam_Hall_No|e }}</td>
+                    <td>{{ hall.Name|e }}</td>
+                    <td>{{ hall.Capacity|e }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}
+

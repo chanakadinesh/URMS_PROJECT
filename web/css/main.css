@@ -70,7 +70,7 @@ div.body.col-sm-8{
 	min-height: 25em;
 }
 
-.sider .nav-pills a li{
+.sider .nav-pills .main{
 	//border:black double .02em;
 	background-color: black;
 	padding: .8em;
@@ -84,8 +84,25 @@ div.body.col-sm-8{
 .sider .nav-stacked a:hover{
 	text-decoration:none;
 }
-.sider .nav-stacked li:hover{
+.sider .nav-stacked .main:hover{
 	padding: 1em;
 	color: rgb(176,223,91);
 }
+.sider .nav-stacked li li{
+	background-color: rgb(176,223,91);
+	padding:.4em;
+	margin-bottom:.2em;
+	list-style: none;
+	text-align: center;
+	margin-right: 2em;
+	margin-left: 2em;
+}
+.sider .nav-stacked li ul{
+	padding: 0px;
+}
+.sider .nav-stacked li ul li:hover{
+	padding: 1em;
+	color: green;
+}
+
 
