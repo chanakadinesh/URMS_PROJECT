@@ -12,7 +12,11 @@ security_logout:
 
 login_check:
     path:     /login_check
-    defaults: {_controller: URMSAppBundle:Secutity:loginCheck }
+    defaults: {_controller: URMSAppBundle:Security:loginCheck }
+
+help_me:
+    path:    /help_me
+    defaults: {_controller: URMSAppBundle:Security:helpMe}
 
 admin_addUser:
     path: /admin/add_user

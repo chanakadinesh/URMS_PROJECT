@@ -7,6 +7,11 @@
     <li><a href="{{ path('security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
     {% endif %}
 {% endblock %}
+{% block user %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li class="user"><a href="#">USER : {{ app.user.username|upper }}</a></li>
+{% endif %}
+{% endblock %}
 {% block sidebar%}
     {{ render(controller('URMSAppBundle:Page:sidebar')) }}
 {% endblock %}
@@ -14,4 +19,8 @@
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('/css/second.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block notifications %}
+    {{ render(controller('URMSAppBundle:Page:getNotificationsCount')) }}
 {% endblock %}

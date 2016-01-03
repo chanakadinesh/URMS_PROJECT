@@ -3,19 +3,23 @@
 {% block title %}Show Hall Details{% endblock %}
 {% block sidebarhead %}Hall Details{% endblock %}
 {% block body %}
-     <table class="table">
-        <tr>
+     <table class="table table-striped">
+        <thead>
+         <tr>
             <th>Hall No </th>
             <th>Hall Name </th>
             <th>Capacity</th>
+            <th>Select</th>
         </tr>
-
+        </thead>
+         <tbody>
         {% for hall in hallList %}
             {% if(type=="LAB") %}
             <tr>
                 <td>{{ hall.Lab_No|e }}</td>
                 <td>{{ hall.Name|e }}</td>
                 <td>{{ hall.Capacity|e }}</td>
+                <td><input type='radio' name='selectedRow' value='{{hall.Name}}'/></td>
             </tr>
             {% endif %}
             {% if(type=="LECTUREHALL") %}
@@ -23,6 +27,7 @@
                     <td>{{ hall.Hall_No|e }}</td>
                     <td>{{ hall.Name|e }}</td>
                     <td>{{ hall.Capacity|e }}</td>
+                    <td><input type='radio' name='selectedRow' value='{{hall.Name}}'/></td>
                 </tr>
             {% endif %}
             {% if(type=="EXAMHALL") %}
@@ -30,9 +35,16 @@
                     <td>{{ hall.Exam_Hall_No|e }}</td>
                     <td>{{ hall.Name|e }}</td>
                     <td>{{ hall.Capacity|e }}</td>
+                    <td><input type='radio' name='selectedRow' value='{{hall.Name}}'/></td>
                 </tr>
             {% endif %}
         {% endfor %}
+         </tbody>
     </table>
 {% endblock %}
 
+{%block javascript %}
+<script>
+    document.getElementsByName('selectRow')
+</script>
+{% endblock %}

@@ -16,36 +16,38 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">URAS</a>
+                    <a class="navbar-brand" href="{{ path('urms_app_homepage') }}">URMS</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
                         {#<li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>#}
                         {#<li><a href="#"><span class="glyphicon glyphicon-retweet"></span> Reserve</a></li>#}
                         {#<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Check Out</a></li>#}
-                        <li><a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        <li><a href="{{ path('urms_app_homepage') }}"><span class="glyphicon glyphicon-bell"></span><span>{% block notifications %}{% endblock %} Notifications</span></a></li>
+                        {#<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>#}
                         {% block log_in_out %}{% endblock %}
                     </ul>
                 </div>
             </div>
         </nav>
+        {% block user %}{% endblock %}
         <div class="jumbotron">
             <img src={{ asset('images/logo.png') }} class="img-rounded">
-            <h1>University Resources Allocation System</h1>
+            <h1>University Resources Management System</h1>
             <h2>University of Moratuwa</h2>
         </div>
     </div>
     <div class="row">
         <div class="sider col-sm-4">
-            <div class="side-head"><h2>{% block sidebarhead %}{% endblock %}</h2></div>
+            <h3 class="page-header">Navigation</h3>
             {% block sidebar %}{% endblock %}
         </div>
         <div class="body col-sm-8">
+            <h3 class="page-header">{% block sidebarhead %}{% endblock %}</h3>
             {% block body %}{% endblock %}
         </div>
     </div>
-
+    <div class="page-header"></div>
     <footer>Team-Crazy4 | Last Modified - 8/12/2015</footer>
 </div>
 {% block javascripts %}

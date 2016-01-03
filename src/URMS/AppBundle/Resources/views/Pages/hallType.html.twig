@@ -3,6 +3,9 @@
 {% block title %}Show Hall{% endblock %}
 {% block sidebarhead %}Hall{% endblock %}
 {% block body %}
+    <p>
+        Select type of hall you need to find out.
+    </p>
     {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
     {{ form_row(form.Hall_Type, { 'attr': {'class': 'form-control','placeholder':'Hall Type'},'label_attr': {'class': 'sr-only'}}) }}
 

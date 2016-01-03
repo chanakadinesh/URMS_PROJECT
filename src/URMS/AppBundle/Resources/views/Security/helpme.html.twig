@@ -1,0 +1,15 @@
+{% extends 'URMSAppBundle::layout.html.twig' %}
+
+{% block title %}Help Me{% endblock %}
+{% block sidebarhead %}Help Me{% endblock %}
+{% block body %}
+    <p>Please fill the form and send your request to the admin. You wil be notified by an email.
+    <br>(Please Enter Your University Email as User Email Address)<br></p>
+    {{ form_start(form,{'attr':{'class': 'form-register'}}) }}
+    {{ form_row(form.userIndex, { 'attr': {'class': 'form-control','placeholder':'User Index'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.senderEmail, { 'attr': {'class': 'form-control','placeholder':'User Email Address'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.subject, {'attr': {'class': 'form-control','placeholder':'Subject'},'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_row(form.message, {'attr': {'class': 'form-control','placeholder':'Your message to the Admin'},'label_attr': {'class': 'sr-only'}}) }}
+    <button type="submit" class="btn btn-lg btn-success btn-block">Send Request</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -5,18 +5,19 @@ namespace URMS\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
+use URMS\AppBundle\Entity\LoginRepository;
 /**
  * Login
  *
  * @ORM\Table(name="login")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="URMS\AppBundle\Entity\LoginRepository")
  */
 class Login implements UserInterface, \Serializable
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="Access_level", type="string", length=20, nullable=false)
+     *
      */
     private $accessLevel = 'ROLL_USER';
 
@@ -98,7 +99,7 @@ class Login implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array($this->getAccessLevel());
+        return array($this->getRole());
         // TODO: Implement getRoles() method.
     }
 
@@ -204,5 +205,23 @@ class Login implements UserInterface, \Serializable
         $this->userId = $userId;
 
         return $this;
+    }
+
+    private $role="ROLE_USER";
+
+    /**
+     * @return String
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param String $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 }

@@ -4,6 +4,7 @@ namespace URMS\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use URMS\AppBundle\DataBaseHandler\AddUserHandler;
+
 use URMS\AppBundle\Form\HallType;
 use Symfony\Component\HttpFoundation\Request;
 use URMS\AppBundle\Entity\New_entity\HallSearch;
@@ -11,16 +12,32 @@ use URMS\AppBundle\DataBaseHandler\DataBase;
 use URMS\AppBundle\Form\VehicleRequestType;
 use URMS\AppBundle\Entity\New_entity\RequestVehicle;
 
+
 class PageController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('URMSAppBundle:Pages:index.html.twig');
+        if($this->isGranted('IS_AUTHENTICATED_FULLY')){
+        return $this->render('URMSAppBundle:Pages:index.html.twig');}
+        else{
+            return $this->redirectToRoute('security_login');
+        }
     }
+
     public function sidebarAction(){
         return $this->render('URMSAppBundle:Pages:sidebar.html.twig');
     }
 
+    public function getNotificationsCountAction(){
+        $count=0;  //This should be taken from database.
+        return $this->render('URMSAppBundle:Pages:notificationCount.html.twig',array('count'=>$count));
+    }
+    public function showNotificationAction(){
+        /* Notfication should be taken form database
+        User can delete some messages;
+           After calling this once all the notifications should be marked as shown.
+        */
+    }
     public function showDriverAccountAction()
     {
         $repo=$this->getDoctrine()->getRepository('URMS\AppBundle\Entity\Driver');
@@ -97,6 +114,7 @@ class PageController extends Controller
         );
 
     }
+
 
 }
 

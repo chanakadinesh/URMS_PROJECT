@@ -7,8 +7,9 @@ security:
         our_db_provider:
             entity:
                 class: URMSAppBundle:Login
-                property: userId
     encoders:
+        URMS\AppBundle\Entity\User:
+            algorithm: bcrypt
         URMS\AppBundle\Entity\Login:
             algorithm: bcrypt
     role_hierarchy:
@@ -35,7 +36,7 @@ security:
                   target_path_parameter: _target_path
             logout:
                   path: /logout
-                  target: /
+                  target: /login
             # activate different ways to authenticate
 
             # http_basic: ~

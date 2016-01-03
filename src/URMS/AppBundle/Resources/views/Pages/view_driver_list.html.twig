@@ -3,14 +3,16 @@
 {% block title %}Show Driver Details{% endblock %}
 {% block sidebarhead %}Driver Details{% endblock %}
 {% block body %}
-    <table class="table">
+    <table class="table table-striped">
+        <thead>
         <tr>
             <th>ID Number</th>
             <th>Name</th>
             <th>NIC Number</th>
             <th>Contact Number</th>
         </tr>
-
+        </thead>
+        <tbody>
         {% for driver in drivers %}
             <tr>
                 <td>{{ driver.Driver_Id|e }}</td>
@@ -19,5 +21,6 @@
                 <td>{{ driver.Contact_No|e }}</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
 {% endblock %}

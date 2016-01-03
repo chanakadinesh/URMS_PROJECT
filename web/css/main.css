@@ -1,19 +1,44 @@
+html body{
+	background-color: rgb(20,20,20);
+}
+.header a:hover{
+	text-decoration: none;
+}
+.header a{
+	color: rgb(176,223,91);
+}
+.header .user{
+	text-align: right;
+	margin-top: 0em;
+	padding-right: 1em;
+	list-style: none;
+}
+.header .user a:hover{
+	color: rgb(210,248,184);
+}
 ul.nav.navbar-nav{
 	float: right;
 	font-size: 1.2em;
 }
 nav.navbar.navbar-inverse{
-	border-radius: 0px;
-	background-color: rgb(0, 26, 19);
+	background: linear-gradient(to bottom,rgb(20,20,20),rgb(176,223,91),rgb(176,223,91),rgb(20,20,20));
+	margin-bottom: 0em;
 }
 nav.navbar.navbar-inverse div li a:hover{
-	color: rgb(176,223,91);
+	color: rgb(210,248,184);
+	//color:green;
 }
 nav.navbar.navbar-inverse .navbar-header a:hover{
-	color: rgb(176,223,91);
+	color: rgb(210,248,184);
 }
 a.navbar-brand{
 	font-size: 1.7em;
+}
+nav.navbar.navbar-inverse .navbar-header a{
+	color:rgb(60,60,60);
+}
+nav.navbar.navbar-inverse div li a{
+	color:rgb(60,60,60);
 }
 
 .jumbotron h1{
@@ -31,17 +56,17 @@ a.navbar-brand{
 	font-family:  Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
 }
 div.jumbotron.jumbotron{
-	border-radius:0px;
 	text-align:center;
-	background-color: rgb(176,223,91);
+	background: linear-gradient(rgb(20,20,20),rgb(176,223,91),rgb(176,223,91),rgb(20,20,20));
+	margin: 0%;
 }
 footer{
-	background-color: black;
-	margin-top:2em;
-	margin-bottom: 1em;
+	 black;
+	//margin-top:2em;
+	//margin-bottom: 1em;
 	padding:0.8em;
 	text-align: center;
-	color:grey;
+	color: rgb(210,248,184);
 	font-size: 1.1em;
 }
 
@@ -55,11 +80,20 @@ div.sider.col-sm-4{
 	//background-color: rgb(176,223,91);
 	padding:1em;
 }
+.sider .page-header{
+	text-align: center;
+	color: rgb(210,248,184);
+}
+.body .page-header{
+	text-align: center;
+	color: rgb(210,248,184);
+}
 div.body.col-sm-8{
 	padding:.8em;
 }
 .sider h2 {
-	border: ridge black;
+	//border:solid black;
+	border-radius: .2em;
 	text-align: center;
 	padding: .2em;
 	margin-top: 0px;
@@ -71,38 +105,60 @@ div.body.col-sm-8{
 }
 
 .sider .nav-pills .main{
-	//border:black double .02em;
-	background-color: black;
+	border-radius:  .2em;
+	//background-color: rgb(176,223,91);
+	background: linear-gradient(to bottom,rgb(20,20,20),rgb(176,223,91),rgb(176,223,91),rgb(20,20,20));
+	color: rgb(20,20,20);
 	padding: .8em;
 	text-align: center;
 	margin-bottom: .2em;
 	margin-left: 1em;
 	margin-right: 1em;
 	font-size: 1.2em;
-	color: gray;
+	//color: gray;
 }
 .sider .nav-stacked a:hover{
 	text-decoration:none;
 }
 .sider .nav-stacked .main:hover{
-	padding: 1em;
-	color: rgb(176,223,91);
+	//padding: 1em;
+	color: rgb(210,248,184);
+	background: linear-gradient(rgb(20,20,20),rgb(176,223,91),rgb(20,20,20));
 }
 .sider .nav-stacked li li{
-	background-color: rgb(176,223,91);
+	//border: solid rgb(176,223,91) .01em;
 	padding:.4em;
 	margin-bottom:.2em;
 	list-style: none;
 	text-align: center;
 	margin-right: 2em;
 	margin-left: 2em;
+	border-radius: .2em;
+	background: linear-gradient(to right,rgb(176,223,91) 60%, black);
 }
 .sider .nav-stacked li ul{
 	padding: 0px;
 }
 .sider .nav-stacked li ul li:hover{
-	padding: 1em;
-	color: green;
+	padding: .8em;
+  background: linear-gradient(to right,rgb(176,223,91), black);
+}
+.sider .nav-stacked a:hover{
+	color:rgb(210,248,184);
+}
+.sider .nav-stacked a{
+	color:rgb(20,20,20);
 }
 
-
+.body.col-sm-8{	
+	color:rgb(210,248,184);
+	font-size: 1.2em;
+}
+form input{
+	background-color: green;
+} 
+ul.ui-autocomplete {
+	color: green !important;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}

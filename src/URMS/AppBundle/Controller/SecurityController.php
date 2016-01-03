@@ -7,6 +7,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\Exception\LogoutException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use URMS\AppBundle\Entity\New_entity\HelpMe;
 
 class SecurityController extends Controller
 {
@@ -42,6 +47,32 @@ class SecurityController extends Controller
 
     public function logoutAction()
     {
+    }
+
+    public function helpMeAction(Request $request){
+        $help=new HelpMe();
+        $help->setReciever('chanakadkm@gmail.com');
+        $help->setDate(new \DateTime());
+        $form = $this->createFormBuilder($help)
+            ->add('userIndex',TextType::class)
+            ->add('senderEmail',TextType::class)
+            ->add('subject',ChoiceType::class,array(
+                'choices'=>$help->getSubjects()
+            ))
+            ->add('message',TextAreaType::class, array('required' => false))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->get('session')->getFlashBag()->add('submit-notice', 'Help me request sent.You will notify be email');
+            return $this->redirectToRoute('security_login');
+        }
+        return $this->render('URMSAppBundle:Security:helpme.html.twig',
+            array('form'=>$form->createView())
+        );
+
+
     }
 }
 

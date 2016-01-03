@@ -3,23 +3,30 @@
     <li ><a href="{{ path('admin_addUser') }}" class="main">Add User Account</a></li>
     <li><a href="#demo" class="main">Add Resource</a>
         <ul>
-            <li><a href="{{ path('admin_addHall') }}" class="submenu">Add Hall</a></li>
-            <li><a href="{{ path('admin_addDriver') }}" class="submenu">Add Driver</a></li>
-            <li><a href="{{ path('admin_addVehicle') }}" class="submenu">Add Vehicle</a></li>
+            <a href="{{ path('admin_addHall') }}" class="submenu"><li>Add Hall</li></a>
+            <a href="{{ path('admin_addDriver') }}" class="submenu"><li>Add Driver</li></a>
+            <a href="{{ path('admin_addVehicle') }}" class="submenu"><li>Add Vehicle</li></a>
         </ul>
     </li>
     {% endif %}
     {% if is_granted('ROLE_STUDENT') %}
     <li><a href="#" class="main">View Resources</a>
         <ul>
-            <li><a href="{{ path('user_showHall') }}" class="submenu">Halls</a></li>
-            <li><a href="{{ path('ùser_showVehicleList') }}" class="submenu">Vehicles</a></li>
-            <li><a href="{{ path('user_showDriverList') }}" class="submenu" >Drivers</a></li>
+            <a href="{{ path('user_showHall') }}" class="submenu"><li>Halls</li></a>
+            <a href="{{ path('ùser_showVehicleList') }}" class="submenu"><li>Vehicles</li></a>
+            <a href="{{ path('user_showDriverList') }}" class="submenu" ><li>Drivers</li></a>
         </ul>
     </li>
     {% endif %}
-    <li ><a href="#" class="main">Allocate Resource</a></li>
 
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div style="color:rgb(210,248,184);text-align:center">
+            URMS System can be utilized by only authorized persons.
+            If you are not registered to the system or you have forgotten the username or password
+            you can request by following link.
+        </div>
+        <li ><a href="{{ path('help_me') }}" class="main">Help Me</a></li>
+    {% endif %}
 </ul>
 
 
